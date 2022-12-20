@@ -16,4 +16,4 @@ To use the website you need to:
   Laundry Project\Laundry\dbConnect.php
   line3   ---   $conn = mysqli_connect("localhost", "root", "root"); 
   
-4.Start your webpage server, and open web browser, go to http://localhost/laundry/index.html
+4.Start your webpage server, and open web browser, go to http://localhost/Laundry_Project/laundry/index.html
