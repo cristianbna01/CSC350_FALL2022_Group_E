@@ -5,7 +5,8 @@ echo "var onecount;";
 echo "onecount=0;";
 echo "subcat = new Array();";
 
-	$scheduleTimeSql = "select scheduleID, Day, ScheduledTime from schedule left join booking on schedule.scheduleID = booking.FK_scheduleID where booking.FK_scheduleID is NULL;";
+	$datenow = date('Y-m-d H:i:s',time());
+	$scheduleTimeSql = "select scheduleID, Day, ScheduledTime from schedule left join booking on schedule.scheduleID = booking.FK_scheduleID where booking.expiredtime < '$datenow' or booking.FK_scheduleID is NULL order by scheduleID;";
 	$result = mysqli_query($conn,$scheduleTimeSql);
 	$count = 0;
 	while($res = mysqli_fetch_assoc($result)){
@@ -54,4 +55,4 @@ echo "<input class='but' type='submit' name='Submit' value='Confirm'>";
 echo "</form>";
 	
 }
-?> 
+?>
