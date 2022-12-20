@@ -6,7 +6,7 @@
 
     $bookingId = $_POST['bookingId'];
 	
-	include('dbconnect.php');//链接数据库
+	include('dbconnect.php');
 	
 	//delete booking
 	$upateSql="delete from booking where bookingId = '$bookingId'";
@@ -19,6 +19,6 @@
 		echo 'Booking record '.$bookingId.' delete failed.';
 	}
 	
-    $conn->close();//关闭数据库
+    $conn->close();
 ?>
 
