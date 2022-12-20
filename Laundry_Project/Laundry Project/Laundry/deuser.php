@@ -7,7 +7,7 @@
     $userId = $_POST['userId'];
 	$username = $_POST['username'];
 	
-	include('dbconnect.php');//链接数据库
+	include('dbconnect.php');
 	
 	//check if user have booking record
 	$selBookingSql="select * from booking where FK_userID = '$userId'";
@@ -26,6 +26,6 @@
 			echo $username.'--'.$userId.' delete failed.';
 		}
 	}
-    $conn->close();//关闭数据库
+    $conn->close();
 ?>
 
