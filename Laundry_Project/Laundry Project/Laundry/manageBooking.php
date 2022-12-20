@@ -45,7 +45,8 @@ echo "<table border='1'><thead><tr>
 		<td>Action</td>
 		</tr></thead><tbody id='laundryScheduleTable'>";
 	
-	$selSql = "Select bookingID, FK_userID, FK_scheduleID, username, Day, ScheduledTime, CreateTime, Expiredtime from booking join laundryuser on booking.FK_userID = laundryuser.userID join schedule on booking.FK_scheduleID = schedule.scheduleID";
+	$datenow = date('Y-m-d H:i:s',time());
+	$selSql = "Select bookingID, FK_userID, FK_scheduleID, username, Day, ScheduledTime, CreateTime, Expiredtime from booking join laundryuser on booking.FK_userID = laundryuser.userID join schedule on booking.FK_scheduleID = schedule.scheduleID and Expiredtime >= '$datenow'";
 	$result = mysqli_query( $conn, $selSql);
 	if ($result) 
 	{
