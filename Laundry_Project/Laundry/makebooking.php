@@ -5,7 +5,13 @@
 	$username = isset($_SESSION['username']) ? $_SESSION['username'] : "";
 	$usertype = isset($_SESSION['usertype']) ? $_SESSION['usertype'] : "";
 
-    $bookingScheduleId = $_POST['ctype'];//get password from POST
+    
+	$bookingScheduleId = $_POST['ctype'];//get password from POST
+	if($bookingScheduleId == ""){
+		echo "<script>alert('Please select laundry day and time .')</script>";
+		header("refresh:0;url=laundryBooking.php");//Register success, go to admin page
+		exit("");
+	}
 
     include('dbConnect.php');//Connect Database
 	
